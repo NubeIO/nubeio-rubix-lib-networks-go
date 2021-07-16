@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"nubeio-rubix-lib-rest-go/controller/validators"
-	"nubeio-rubix-lib-rest-go/model"
-	"nubeio-rubix-lib-rest-go/service"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/controller/validators"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/model"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/service"
 )
 
 

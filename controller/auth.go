@@ -3,8 +3,8 @@ package controller
 import (
 	"encoding/json"
 	"net/http"
-	"nubeio-rubix-lib-rest-go/model"
-	"nubeio-rubix-lib-rest-go/service"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/model"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/service"
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"

@@ -5,8 +5,8 @@ import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"nubeio-rubix-lib-rest-go/config"
-	"nubeio-rubix-lib-rest-go/model"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/config"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/model"
 )
 
 var (

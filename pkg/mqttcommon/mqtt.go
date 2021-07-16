@@ -1,12 +1,14 @@
-package adapter
+package mqttcommon
+
+
 
 import (
 	"encoding/json"
 	"fmt"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"log"
-	"nubeio-rubix-lib-rest-go/config"
-	"nubeio-rubix-lib-rest-go/controller"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/config"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/controller"
 )
 
 type MqttConnection struct {
@@ -69,3 +71,4 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 var connectHandler mqtt.OnConnectHandler = func(client mqtt.Client) {
 	log.Println("Mqtt connected")
 }
+

@@ -5,7 +5,7 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"nubeio-rubix-lib-rest-go/helpers"
+	"github.com/NubeIO/nubeio-rubix-lib-rest-go/helpers"
 	"gorm.io/gorm"
 	"log"
 	mathRand "math/rand"
