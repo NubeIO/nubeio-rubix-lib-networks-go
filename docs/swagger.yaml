@@ -1,0 +1,473 @@
+definitions:
+  model.Device:
+    properties:
+      created_on:
+        type: string
+      description:
+        type: string
+      enable:
+        type: boolean
+      fault:
+        type: boolean
+      fault_message:
+        type: string
+      history_enable:
+        type: boolean
+      name:
+        type: string
+      network_uuid:
+        type: string
+      points:
+        items:
+          $ref: '#/definitions/model.Point'
+        type: array
+      updated_on:
+        type: string
+      uuid:
+        type: string
+    type: object
+  model.DeviceBody:
+    properties:
+      NetworkID:
+        type: integer
+      description:
+        type: string
+      name:
+        type: string
+    required:
+    - NetworkID
+    - name
+    type: object
+  model.Network:
+    properties:
+      created_on:
+        type: string
+      description:
+        type: string
+      devices:
+        items:
+          $ref: '#/definitions/model.Device'
+        type: array
+      enable:
+        type: boolean
+      fault:
+        type: boolean
+      fault_message:
+        type: string
+      history_enable:
+        type: boolean
+      name:
+        type: string
+      updated_on:
+        type: string
+      uuid:
+        type: string
+    type: object
+  model.Point:
+    properties:
+      created_on:
+        type: string
+      description:
+        type: string
+      device_uuid:
+        type: string
+      enable:
+        type: boolean
+      fault:
+        type: boolean
+      fault_message:
+        type: string
+      history_enable:
+        type: boolean
+      name:
+        type: string
+      point_store:
+        $ref: '#/definitions/model.PointStore'
+      updated_on:
+        type: string
+      uuid:
+        type: string
+      writeable:
+        type: boolean
+    type: object
+  model.PointStore:
+    properties:
+      created_on:
+        type: string
+      description:
+        type: string
+      enable:
+        type: boolean
+      fault:
+        type: boolean
+      fault_message:
+        type: string
+      history_enable:
+        type: boolean
+      name:
+        type: string
+      pointUuid:
+        type: string
+      updated_on:
+        type: string
+      uuid:
+        type: string
+    type: object
+host: localhost:8081
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: nube api docs
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: GO Nube API
+  version: "1.0"
+paths:
+  /auth/check:
+    post:
+      consumes:
+      - application/json
+      description: CheckToken header example
+      parameters:
+      - default: Bearer <Add access token here>
+        description: Insert your access token
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+      security:
+      - ApiKeyAuth: []
+      summary: CheckToken
+      tags:
+      - auth
+  /auth/refresh:
+    post:
+      consumes:
+      - application/json
+      description: RefreshToken Process
+      parameters:
+      - description: RefreshToken
+        in: body
+        name: RefreshToken
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Refresh Token
+      tags:
+      - auth
+  /auth/signin:
+    post:
+      consumes:
+      - application/json
+      description: Signin Process
+      parameters:
+      - description: Signin
+        in: body
+        name: Signin
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Signin
+      tags:
+      - auth
+  /devices/:
+    get:
+      consumes:
+      - application/json
+      description: get devices
+      parameters:
+      - description: /devices/?Limit=2
+        in: query
+        name: Limit
+        type: integer
+      - description: /devices/?Limit=0
+        in: query
+        name: Offset
+        type: integer
+      - description: /devices/?Sort=1
+        in: query
+        name: Sort
+        type: string
+      - description: /devices/?Order=DESC
+        in: query
+        name: Order
+        type: string
+      - description: /devices/?Search=
+        in: query
+        name: Search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.DeviceBody'
+            type: array
+      summary: List devices
+      tags:
+      - devices
+    post:
+      consumes:
+      - application/json
+      description: Create Device
+      parameters:
+      - description: input body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.DeviceBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.DeviceBody'
+            type: array
+      summary: Create Device
+      tags:
+      - devices
+  /devices/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get by ID
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.DeviceBody'
+            type: array
+      summary: Show a Device
+      tags:
+      - devices
+  /devices/{uuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Device
+      operationId: get-string-by-int
+      parameters:
+      - description: Device ID
+        in: path
+        name: uuid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Delete Device
+      tags:
+      - devices
+    patch:
+      consumes:
+      - application/json
+      description: Update Device
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Device
+        in: body
+        name: Network
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Update Device
+      tags:
+      - devices
+  /networks/:
+    get:
+      consumes:
+      - application/json
+      description: get networks
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: List networks
+      tags:
+      - networks
+  /networks/{uuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Network
+      operationId: get-string-by-int
+      parameters:
+      - description: Network ID
+        in: path
+        name: uuid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Delete Network
+      tags:
+      - networks
+    get:
+      consumes:
+      - application/json
+      description: get by ID
+      parameters:
+      - description: Device ID
+        in: path
+        name: uuid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Network'
+            type: array
+      summary: Show a Network
+      tags:
+      - networks
+    put:
+      consumes:
+      - application/json
+      description: Update Network
+      parameters:
+      - description: Network ID
+        in: path
+        name: uuid
+        required: true
+        type: integer
+      - description: Network
+        in: body
+        name: Network
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Update Network
+      tags:
+      - networks
+  /points/:
+    get:
+      consumes:
+      - application/json
+      description: get points
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: List points
+      tags:
+      - points
+  /points/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Point
+      parameters:
+      - description: Point ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Delete Point
+      tags:
+      - points
+    get:
+      consumes:
+      - application/json
+      description: get by ID
+      parameters:
+      - description: Point ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Show a Point
+      tags:
+      - points
+    put:
+      consumes:
+      - application/json
+      description: Update Point
+      parameters:
+      - description: Point ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Point
+        in: body
+        name: Network
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Update Point
+      tags:
+      - points
+swagger: "2.0"
