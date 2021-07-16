@@ -28,7 +28,7 @@ func Setup() {
 
 	if driver == "sqlite" {
 		if logs {
-			db, err = gorm.Open(sqlite.Open("./ugin.db?_foreign_keys=on"), &gorm.Config{
+			db, err = gorm.Open(sqlite.Open("./nube.db?_foreign_keys=on"), &gorm.Config{
 				Logger: logger.Default.LogMode(logger.Info),
 			})
 		} else {
