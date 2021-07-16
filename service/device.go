@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"rubix-lib-rest-go/model"
+	"nubeio-rubix-lib-rest-go/model"
 	"gorm.io/gorm"
 
 )

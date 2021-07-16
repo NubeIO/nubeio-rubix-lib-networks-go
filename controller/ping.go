@@ -3,8 +3,8 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"rubix-lib-rest-go/model"
-	adapter "rubix-lib-rest-go/mqtt"
+	"nubeio-rubix-lib-rest-go/model"
+	adapter "nubeio-rubix-lib-rest-go/mqtt"
 )
 
 type HealthController struct {

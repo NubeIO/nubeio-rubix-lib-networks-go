@@ -2,8 +2,8 @@ package validators
 
 import (
 	"github.com/gin-gonic/gin"
-	"rubix-lib-rest-go/helpers"
-	"rubix-lib-rest-go/model"
+	"nubeio-rubix-lib-rest-go/helpers"
+	"nubeio-rubix-lib-rest-go/model"
 	"gopkg.in/validator.v2"
 	"net/http"
 )

@@ -6,8 +6,8 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 	"gorm.io/gorm"
-	"rubix-lib-rest-go/controller"
-	"rubix-lib-rest-go/pkg/middleware"
+	"nubeio-rubix-lib-rest-go/controller"
+	"nubeio-rubix-lib-rest-go/pkg/middleware"
 )
 
 

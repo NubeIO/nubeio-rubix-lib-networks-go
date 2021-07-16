@@ -5,8 +5,8 @@ import (
 	"fmt"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"log"
-	"rubix-lib-rest-go/config"
-	"rubix-lib-rest-go/controller"
+	"nubeio-rubix-lib-rest-go/config"
+	"nubeio-rubix-lib-rest-go/controller"
 )
 
 type MqttConnection struct {

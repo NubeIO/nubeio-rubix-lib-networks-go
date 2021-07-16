@@ -3,8 +3,8 @@ package service
 import (
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
-	"rubix-lib-rest-go/config"
-	"rubix-lib-rest-go/model"
+	"nubeio-rubix-lib-rest-go/config"
+	"nubeio-rubix-lib-rest-go/model"
 	"time"
 )
 

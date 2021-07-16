@@ -39,7 +39,7 @@ type Configuration struct {
 }
 
 func CommonConfig() Configuration {
-	configFile := "rubix-lib-rest-go-config.json"
+	configFile := "nubeio-rubix-lib-rest-go-config.json"
 	file, err := os.Open(configFile)
 
 	Config := Configuration{}

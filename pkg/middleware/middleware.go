@@ -6,9 +6,9 @@ import (
 	"github.com/didip/tollbooth"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"rubix-lib-rest-go/config"
+	"nubeio-rubix-lib-rest-go/config"
 
-	"rubix-lib-rest-go/service"
+	"nubeio-rubix-lib-rest-go/service"
 	"strings"
 )
 

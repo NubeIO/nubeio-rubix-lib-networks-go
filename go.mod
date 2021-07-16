@@ -1,4 +1,4 @@
-module rubix-lib-rest-go
+module nubeio-rubix-lib-rest-go
 
 go 1.16
 

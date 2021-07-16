@@ -4,9 +4,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
-	"rubix-lib-rest-go/helpers"
-	"rubix-lib-rest-go/model"
-	"rubix-lib-rest-go/service"
+	"nubeio-rubix-lib-rest-go/helpers"
+	"nubeio-rubix-lib-rest-go/model"
+	"nubeio-rubix-lib-rest-go/service"
 )
 
 //var _err error

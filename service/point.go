@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
-	"rubix-lib-rest-go/model"
+	"nubeio-rubix-lib-rest-go/model"
 
 	"gorm.io/gorm"
 	"log"
